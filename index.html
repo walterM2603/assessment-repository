@@ -652,7 +652,7 @@ function renderRail(){
   FACETS.forEach(f => {
     const sel = ST.f[f.key];
     const pool = E.filter(e => matches(e, f.key));
-    const isOpen = f.key in open ? open[f.key] : (f.open || sel.size > 0);
+    const isOpen = f.key in open ? open[f.key] : (sel.size > 0);
     h += '<details class="fgroup" data-k="' + f.key + '"' + (isOpen ? ' open' : '') + '><summary>' + esc(f.label) + (sel.size ? ' (' + sel.size + ')' : '') + '</summary><div class="opts">';
     f.opts().forEach(([k, label]) => {
       const n = pool.filter(e => f.get(e).includes(k)).length;
